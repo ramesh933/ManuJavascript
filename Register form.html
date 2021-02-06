@@ -1,0 +1,146 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+
+<script>
+   function validations() {
+        var Username = document.forms["Register"]["UserName"];
+	var email = document.forms["Register"]["Email"];
+        var password = document.forms["Register"]["Password"];
+	var phonenumber = document.forms["Register"]["phonenumber"];
+	var location = document.forms["Register"]["Location"];
+	 
+	 if(Username_validation(Username)){
+	 if(email_validation(email)){
+	 if(pass_validation(password,5,8)){
+	 if(phone_validation(phonenumber)){
+	 if(loc_validation(location)){
+	   
+	 }
+	 }
+	 }
+	 }
+	 }
+	 
+	 return false; 
+	}
+	
+	function Username_validation(Username){
+	  var letters = /^[A-Za-z]+$/;
+	  
+	  if(fname.value.match(letters)){
+	    return true;
+	  }else {
+	    alert("Please enter alphabet charecters for Username");
+		username.focus();
+		return false;
+	  } 
+	}
+	
+	function email_validation(email){
+	  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	  if(email.value.match(mailformat)){
+	    return true;
+	  }else{
+	   alert("Please enter valid email");
+	   email.focus();
+	   return false;
+	  }
+	}
+	
+	function pass_validation(password,min,max){
+	 var pass = password.value.length;
+	 if(pass == 0 || pass > max || pass < min ){
+	    alert("Please enter valid password/between "+min+" to" +max);
+		password.focus();
+		return false;
+	 }else{
+	   return true;
+	 }
+	}
+	
+	function phone_validation(phonenumber){
+	  var numbers = /^[0-9]+$/;
+	  if(phone.value.match(numbers) && phonenumber.value.length == 10){
+	    return true;
+	  }else{
+	    alert("Please enter valid number");
+	   phone.focus();
+	   return false;
+	  }
+	} 
+    
+    function loc_validation(location){
+	 if(loc.value == "Default"){
+	    alert("select your location");
+		loc.focus();
+		return false;
+	 }else{
+	   alert("Form successfully submited");
+	   window.location.reload();
+	   return true;
+	 }
+	}	
+    
+
+</script>
+<style>
+  body
+  {
+    background-image: url(tree1.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+  }
+  .header
+  {
+    text-align:center;
+    font-size:30px;
+	padding-bottom:0px;
+  }
+ .box
+ {
+   width:400px;
+   height:400px;
+   padding:20px;
+   background-color: rgb(180,180,180);
+   margin:100px auto;
+   border:3px solid gray;
+   font-size:20px;
+   margin-top:10px;
+ }
+ 
+
+</style>
+</head>
+<body>
+<h2 class="header">Register Here</h2>
+<div class ="box">
+
+<form name="Register" action="#" onsubmit="return validations()" method="post">
+<label for="username">user name:</label><br>
+<input type= "text" id="username" name="userName" placeholder="userName" size="30"><br>
+
+<label for="email">Email:</label><br>
+<input type="email" id="email" name="Email" placeholder="Email" size="30"><br>
+<label for="pwd">Password:</label><br>
+<input type ="password" id="pwd" name="Password" placeholder="Password" size="30"><br>
+<label for="telephone">phonenumber:</label><br>
+<input type="text" id="phonenumber" name="phonenumber" placeholder="phonenumber" size="30">
+<p>Select your location:</p>
+<select type="text" name="location">
+    <option value ="Default">Please select a location</option>
+    <option>Chennai</option>
+	<option>Bangalore</option>
+	<option>Hyderabad</option>
+	<option>Delhi</option>
+	<option>Mumbai</option>
+</select><br><br>
+<input type ="submit" value="Submit">
+</form>
+</div>
+
+</body>
+
+</html>
